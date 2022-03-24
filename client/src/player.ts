@@ -87,11 +87,11 @@ export class Player {
         let force: number = 0.002 * deltaTime;  // That means a maximum of 20 force / second
         let direction: BABYLON.Vector3 = camera.getCamDirection().multiplyByFloats(force, force, force);
         if(this.keyDown[UP]){
-            this.playerMesh.applyImpulse(direction, contactPoint);
+            this.playerMesh.physicsImpostor.applyImpulse(direction, contactPoint);
             RouterService.sendInteraction(camera.getCamDirection(), force);
         }
         if(this.keyDown[DOWN]){
-            this.playerMesh.applyImpulse(direction.negate(), contactPoint);
+            this.playerMesh.physicsImpostor.applyImpulse(direction.negate(), contactPoint);
             RouterService.sendInteraction(camera.getCamDirection().negate(), force);
         }
         if(this.keyDown[LEFT]){
@@ -106,7 +106,7 @@ export class Player {
                 let jump_direction = new BABYLON.Vector3(0, 1, 0);
                 force = 20;
                 let jump: BABYLON.Vector3 = jump_direction.multiplyByFloats(force, force, force);
-                this.playerMesh.applyImpulse(direction.negate(), this.playerMesh.absolutePosition);
+                this.playerMesh.physicsImpostor.applyImpulse(jump, this.playerMesh.absolutePosition);
                 RouterService.sendInteraction(jump_direction, force);
             }
 

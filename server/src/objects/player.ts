@@ -29,7 +29,7 @@ export class Player {
         contactPoint.y += 20;
         
         let direction: Vector3 = unit_direction.multiplyByFloats(force, force, force);
-        this.playerMesh.applyImpulse(direction, contactPoint);
+        this.playerMesh.physicsImpostor.applyImpulse(direction, contactPoint);
         
     }
 }

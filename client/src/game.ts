@@ -145,7 +145,7 @@ export class Game {
 
     private createVector(config: any): BABYLON.Vector3 {
         let vec = new BABYLON.Vector3(
-            config.x, config.y, config.z
+            config.x ?? config._x, config.y ?? config._y, config.z ?? config._z
         );
         return vec;
     }

@@ -88,7 +88,7 @@ export class World {
 
     private createVector(config: any): Vector3 {
         let vec = new Vector3(
-            config.x, config.y, config.z
+            config.x ?? config._x, config.y ?? config._y, config.z ?? config._z
         );
         return vec;
     }
