@@ -26,7 +26,7 @@ export class World {
 
         // Important to first enable physics before creating any mesh
         const OIMO = require("oimo");
-        this.scene.enablePhysics(new Vector3(0, -20, 0), new OimoJSPlugin(undefined, OIMO));
+        this.scene.enablePhysics(new Vector3(0, -20, 0), new OimoJSPlugin(undefined, undefined, OIMO));
 
         // Creat mesh objects
         this.area.init();
